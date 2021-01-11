@@ -1,0 +1,12 @@
+﻿#banner1{
+	display:block;
+	background-color:black;
+	height: 80px;
+	width: 100%;
+}
+#banner2{
+	display:block;
+	background-color:#46bfe2;
+	height: 8px;
+	width: 100%;
+}
