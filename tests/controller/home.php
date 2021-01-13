@@ -55,7 +55,7 @@ function main(){
         </a>
 
         <ul class="sub-menu">
-        <li><a href="#">Profil</a></li>
+        <li><a href="/meetJobs/tests/view/userProfil.php">Profil</a></li>
             <li><a href="'.$GLOBALS['urlMap']['logout'].'">Se deconnecter</a></li>
         </ul>
         </li>';

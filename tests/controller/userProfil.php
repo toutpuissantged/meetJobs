@@ -15,7 +15,18 @@ function forcerTelechargement($nom, $situation, $poids)
     readfile($situation);
     exit();
   }
+  $method = $_SERVER['REQUEST_METHOD'];
 
+  if (!isset($_SESSION['id']) or $_SESSION['id']==NULL) {
+      #echo "id non trouver";
+      #var_dump($_SESSION['id']);
+      $Bmsg='vous devez vous connecter pour <br> consulter cette partie  du site  ';
+      $Boostrap=new Boostrap;
+      #echo $Bmsg2=$Boostrap->alert($Bmsg,'danger');
+      FlashInit('login');
+      FlashSet('login',$Boostrap->alert($Bmsg,'danger'));
+      header('location: '. $GLOBALS['urlMap']['login']);
+  }
 
 try{
     $dbinfo=$GLOBALS['db'];
@@ -42,6 +53,7 @@ try{
         #var_dump([$nom, $prenom, $sexe,$profession,$email]);
         #echo "ok";
         $filename='../../model/upload/'.$matricule.'.pdf';
+        FlashSet('cvLocation',$filename);
         
         $fileEx=file_exists($filename );
         #var_dump($fileEx);
@@ -50,13 +62,14 @@ try{
 
         if ($fileEx==TRUE) {
             $downloadCv=$filename;
+            $downloadCv='/meetJobs/tests/controller/cvdownload.php';
             $downloadValid='download="'.$nom.$prenom.'.pdf"';
             #FlashSet('home','cv telecgarger avec success');
-            forcerTelechargement($nom.'.pdf',$filename, filesize($filename));
+            #forcerTelechargement($nom.'.pdf',$filename, filesize($filename));
         }
         else{
-            FlashSet('userProfil','le candidat n\'a pas de cv');
-            $downloadCv='';
+            
+            $downloadCv='/meetJobs/tests/controller/cverror.php';
             #header('location /meetJobs/tests/controller/userProfil.php');
 
         }
@@ -76,6 +89,6 @@ catch(PDOException $e){
     echo"Erreur : " . $e->getMessage();
 }
 
-include('../view/userProfil.php');
+#include('../view/userProfil.php');
 
 ?>

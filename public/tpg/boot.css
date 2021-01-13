@@ -86,13 +86,26 @@
 }
 
 .my-alert{
+    display: block;
     position: fixed;
     top: 60px;
     left: 10px;
     animation-duration: 15s;
     animation-name: alert;
     opacity: 0;
+    z-index: 10;
 }
+.new-alert{
+  display: block;
+  position: fixed;
+  top: 0px;
+  left: 10px;
+  animation-duration: 15s;
+  animation-name: newalert;
+  opacity: 0;
+  z-index: 10;
+}
+
 @keyframes alert{
     0%{
         top:200px; 
@@ -108,4 +121,21 @@
     100%{
       opacity: 0.5;
     }
+}
+
+@keyframes newalert{
+  0%{
+      top:200px; 
+      opacity: 0.5;
+  }
+  10%{
+      top: 0px; 
+      opacity: 0.9;       
+  }
+  90%{
+      opacity: 1;
+  }
+  100%{
+    opacity: 0.5;
+  }
 }

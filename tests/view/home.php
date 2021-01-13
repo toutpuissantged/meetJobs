@@ -20,8 +20,8 @@
     <link rel="stylesheet" href="../../public/assets/public/css/bootstrap.css">
 	<link rel="stylesheet" href="../../public/assets/public/css/animate.min.css">
 	<link rel="stylesheet" href="../../public/assets/public/css/normalize.css">
-	<link rel="stylesheet" href="../../public/assets/public/css/fontawesome/fontawesome-all.css">
-	<link rel="stylesheet" href="../../public/assets/public/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
 	<link rel="stylesheet" href="../../public/assets/public/css/themify-icons.css">
 	<link rel="stylesheet" href="../../public/assets/public/css/owl.carousel.css">
 	<link rel="stylesheet" href="../../public/assets/public/css/linearicons.css">
@@ -303,7 +303,7 @@
 	</div>
 
 	<div id="waitingOperationMask">
-		<i class="fa fa-spin fa-spinner"></i>
+		<i class="fab fa-spin fa-spinner"></i>
 		<div>
 			<h3>traitement en cours</h3>
 			<h6>Veuillez patienter s'il vous plait.</h6>
@@ -332,11 +332,11 @@
     </div>
 
     <div id="icon-bar">
-		<a href="https://www.facebook.com/" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
-		<a href="https://twitter.com/" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a>
-		<a href="https://www.linkedin.com/" target="_blank" class="linkedin"><i class="fa fa-linkedin"></i></a>
-		<a href="https://web.whatsapp.com/send?phone=22890999868&amp;text=Salut,%20comment%20pouvons%20nous%20vous%20aider?" target="_blank" class="whatsapp"><i class="fa fa-whatsapp"></i></a>
-		<a href="https://www.instagram.com/" target="_blank" class="instagram"><i class="fa fa-instagram"></i></a>
+		<a href="https://www.facebook.com/" target="_blank" class="facebook"><i class="fab fa-facebook"></i></a>
+		<a href="https://twitter.com/" target="_blank" class="twitter"><i class="fab fa-twitter"></i></a>
+		<a href="https://www.linkedin.com/" target="_blank" class="linkedin"><i class="fab fa-linkedin"></i></a>
+		<a href="https://web.whatsapp.com/send?phone=22890999868&amp;text=Salut,%20comment%20pouvons%20nous%20vous%20aider?" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+		<a href="https://www.instagram.com/" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
     </div>
 
 	<!--************************************
@@ -540,7 +540,7 @@
                                     <i class="lnr lnr-briefcase"></i> Deposer mon cv
                                 </a>
 
-                                <a href="javascript:void(0);" class="jf-btn" style="margin-bottom: 20px; text-transform: none; font-weight: 700">
+                                <a href="/meetJobs/tests/view/anonce.php" class="jf-btn" style="margin-bottom: 20px; text-transform: none; font-weight: 700">
                                     <i class="lnr lnr-briefcase"></i> Confiez-nous votre poste
                                 </a>
 
@@ -946,7 +946,7 @@
 
                                     <a href="https://projects.daoscorporation.com/odile-job/public/success-story-list" style="float: right; text-transform: none;">
                                         Lire tous les autres témoignages
-                                        <i class="fa fa-plus-circle green"></i>
+                                        <i class="fab fa-plus-circle green"></i>
                                     </a>
                                 </div>
 
@@ -1136,7 +1136,7 @@
 								</p>
 							</div>
 							<ul class="jf-socialiconssimple">
-								<li class="jf-facebook"><a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook-f"></i></a></li>
+								<li class="jf-facebook"><a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
 								<li class="jf-twitter"><a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a></li>
 								<li class="jf-linkedin"><a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
 								<li><a href="https://web.whatsapp.com/send?phone=22890999868&amp;text=Salut,%20comment%20pouvons%20nous%20vous%20aider?" target="_blank"><i class="fab fa-whatsapp" style="color: green"></i></a></li>
@@ -1260,7 +1260,7 @@
 				</div>
 			</div>
 			<div class="jf-footerbottom" style="padding-bottom: 0">
-				<a class="jf-btnscrolltop" href="javascript:void(0);" onclick="scrollToTop()"><i class="fa fa-angle-double-up"></i></a>
+				<a class="jf-btnscrolltop" href="javascript:void(0);" onclick="scrollToTop()"><i class="fab fa-angle-double-up"></i></a>
 				<div class="container">
 					<div class="row">
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">

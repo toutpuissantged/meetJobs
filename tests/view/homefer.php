@@ -1,3 +1,5 @@
+<?php include_once('../controller/home.php') ?>
+
 <!DOCTYPE html>
 <html class="no-js" lang="fr">
 
@@ -18,8 +20,8 @@
     <link rel="stylesheet" href="../../public/assets/public/css/bootstrap.css">
 	<link rel="stylesheet" href="../../public/assets/public/css/animate.min.css">
 	<link rel="stylesheet" href="../../public/assets/public/css/normalize.css">
-	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-
+	<link rel="stylesheet" href="../../public/assets/public/css/fontawesome/fontawesome-all.css">
+	<link rel="stylesheet" href="../../public/assets/public/css/font-awesome.min.css">
 	<link rel="stylesheet" href="../../public/assets/public/css/themify-icons.css">
 	<link rel="stylesheet" href="../../public/assets/public/css/owl.carousel.css">
 	<link rel="stylesheet" href="../../public/assets/public/css/linearicons.css">
@@ -301,7 +303,7 @@
 	</div>
 
 	<div id="waitingOperationMask">
-		<i class="fab fa-spin fa-spinner"></i>
+		<i class="fa fa-spin fa-spinner"></i>
 		<div>
 			<h3>traitement en cours</h3>
 			<h6>Veuillez patienter s'il vous plait.</h6>
@@ -330,11 +332,11 @@
     </div>
 
     <div id="icon-bar">
-		<a href="https://www.facebook.com/" target="_blank" class="facebook"><i class="fab fa-facebook"></i></a>
-		<a href="https://twitter.com/" target="_blank" class="twitter"><i class="fab fa-twitter"></i></a>
-		<a href="https://www.linkedin.com/" target="_blank" class="linkedin"><i class="fab fa-linkedin"></i></a>
-		<a href="https://web.whatsapp.com/send?phone=22890999868&amp;text=Salut,%20comment%20pouvons%20nous%20vous%20aider?" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
-		<a href="https://www.instagram.com/" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+		<a href="https://www.facebook.com/" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
+		<a href="https://twitter.com/" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a>
+		<a href="https://www.linkedin.com/" target="_blank" class="linkedin"><i class="fa fa-linkedin"></i></a>
+		<a href="https://web.whatsapp.com/send?phone=22890999868&amp;text=Salut,%20comment%20pouvons%20nous%20vous%20aider?" target="_blank" class="whatsapp"><i class="fa fa-whatsapp"></i></a>
+		<a href="https://www.instagram.com/" target="_blank" class="instagram"><i class="fa fa-instagram"></i></a>
     </div>
 
 	<!--************************************
@@ -375,12 +377,12 @@
 												</a>
 
 												<ul class="sub-menu">
-													<li><a href="https://projects.daoscorporation.com/odile-job/public/jobs/search">Recherche avancée</a></li>
-													<li><a href="https://projects.daoscorporation.com/odile-job/public/jobs">Toutes les offfres</a></li>
-													<li><a href="https://projects.daoscorporation.com/odile-job/public/jobs/category">Emploi par métier</a></li>
-													<li><a href="https://projects.daoscorporation.com/odile-job/public/jobs/location">Emploi par Ville</a></li>
-													<li><a href="https://projects.daoscorporation.com/odile-job/public/jobs/contract">Emploi par contrat</a></li>
-													<li><a href="https://projects.daoscorporation.com/odile-job/public/share-cv" class="green">Déposer votre cv</a></li>
+													<li><a href="#">Recherche avancée</a></li>
+													<li><a href="#">Toutes les offfres</a></li>
+													<li><a href="#">Emploi par métier</a></li>
+													<li><a href="#">Emploi par Ville</a></li>
+													<li><a href="#">Emploi par contrat</a></li>
+													<li><a href="#" class="green">Déposer votre cv</a></li>
 												</ul>
 											</li>
 											<li class="menu-item-has-children page_item_has_children">
@@ -619,9 +621,7 @@
                                 <i class="lnr lnr-apartment"></i>
                                 Profils d'entreprises
                             </h2>
-                            <a class="jf-btnviewall uppercase green" style="font-size: 0.8em" href="https://projects.daoscorporation.com/odile-job/public/partners">
-                                Devenir un partenaire
-                            </a>
+                          
                         </div>
                     </div>
                     <div class="jf-topcompaniesholder">
@@ -691,7 +691,6 @@
                                 <i class="lnr lnr-briefcase"></i>
                                 Les Nouveaux Jobs
                             </h2>
-                            <a class="jf-btnviewall uppercase green" style="font-size: 0.8em" href="https://projects.daoscorporation.com/odile-job/public/jobs">Voir tous les jobs</a>
                         </div>
                     </div>
                 </div>
@@ -699,7 +698,7 @@
                 
                 <script type="text/javascript"
                         src="../../public/assets/public/js/jquery.countdown.min.js"></script>
-                <div class="row" id="inject">
+                <div class="row">
                     <div class="jf-featuredjobs jf-featuredjobsvtwo jf-featuredjobsvthree">
                         <?php
                             echo $args[0] ;
@@ -850,111 +849,7 @@
         <!--************************************
                 Testimonials Start
         *************************************-->
-        <section class="jf-sectionspace jf-haslayout jf-bglight" style="margin: 20px 0; padding: 30px 0;">
-            <div class="container">
-                <div class="row justify-content-lg-center">
-                    <h2 class="noneTextTransform">Témoignages</h2>
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10 col-lg-push-1">
-                        <div class="jf-customerfeedbacks">
-                            <div id="jf-feebbackslider" class="jf-feebbackslider owl-carousel">
-                                <div class="item jf-employstory">
-                                    <figure class="jf-empoyimg">
-                                        <img src="../../public/assets/public/images/img_avatar.png" alt="image descrion">
-                                    </figure>
-                                    <div class="jf-empoyerinfo">
-                                        <h3>Margorie Wayman</h3>
-                                        <span>Fonction XXX</span>
-                                        <span>XYZ Company LTD</span>
-                                    </div>
-                                    <div class="jf-description">
-                                        <blockquote>
-                                            <q>************* <span>***********</span> ********************</q>
-                                        </blockquote>
-                                    </div>
-                                </div>
-                                <div class="item jf-employstory">
-                                    <figure class="jf-empoyimg">
-                                        <img src="../../public/assets/public/images/img_avatar.png" alt="image descrion">
-                                    </figure>
-                                    <div class="jf-empoyerinfo">
-                                        <h3>Margorie Wayman</h3>
-                                        <span>Fonction XXX</span>
-                                        <span>XYZ Company LTD</span>
-                                    </div>
-                                    <div class="jf-description">
-                                        <blockquote>
-                                            <q>***************** <span>*************************</span> ***************************</q>
-                                        </blockquote>
-                                    </div>
-                                </div>
-                                <div class="item jf-employstory">
-                                    <figure class="jf-empoyimg">
-                                        <img src="../../public/assets/public/images/img_avatar.png" alt="image descrion">
-                                    </figure>
-                                    <div class="jf-empoyerinfo">
-                                        <h3>Margorie Wayman</h3>
-                                        <span>Fonction XXX</span>
-                                        <span>XYZ Company LTD</span>
-                                    </div>
-                                    <div class="jf-description">
-                                        <blockquote>
-                                            <q>Consectetur adipisicing <span>elito eiusmod lokie apore isniate</span> incididunt etoeream magnaie aiequa enimic ad minim venam... </q>
-                                        </blockquote>
-                                    </div>
-                                </div>
-                                <div class="item jf-employstory">
-                                    <figure class="jf-empoyimg">
-                                        <img src="../../public/assets/public/images/img_avatar.png" alt="image descrion">
-                                    </figure>
-                                    <div class="jf-empoyerinfo">
-                                        <h3>Margorie Wayman</h3>
-                                        <span>Fonction XXX</span>
-                                        <span>XYZ Company LTD</span>
-                                    </div>
-                                    <div class="jf-description">
-                                        <blockquote>
-                                            <q>Consectetur adipisicing <span>elito eiusmod lokie apore isniate</span> incididunt etoeream magnaie aiequa enimic ad minim venam... </q>
-                                        </blockquote>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div id="jf-authorpicslider" class="jf-authorpicslider jf-authorpicslider owl-carousel">
-                                <div class="item">
-                                    <figure><img src="../../public/assets/public/images/img_avatar.png" alt="image description"></figure>
-                                </div>
-                                <div class="item">
-                                    <figure><img src="../../public/assets/public/images/img_avatar.png" alt="image description"></figure>
-                                </div>
-                                <div class="item">
-                                    <figure><img src="../../public/assets/public/images/img_avatar.png" alt="image description"></figure>
-                                </div>
-                                <div class="item">
-                                    <figure><img src="../../public/assets/public/images/img_avatar.png" alt="image description"></figure>
-                                </div>
-                            </div>
-
-                            <div class="jf-sharestory">
-                                <figure>
-                                    <img src="../../public/assets/public/images/icon-img.png" alt="img-description">
-                                </figure>
-                                <div class="jf-sharestorycontent">
-                                    <h3 class="noneTextTransform">Voulez vous partager un témoignage avec nous ?</h3>
-                                    <a href="https://projects.daoscorporation.com/odile-job/public/share-success-story">Cliquez ici pour écrire votre hitoire</a>
-
-                                    <a href="https://projects.daoscorporation.com/odile-job/public/success-story-list" style="float: right; text-transform: none;">
-                                        Lire tous les autres témoignages
-                                        <i class="fab fa-plus-circle green"></i>
-                                    </a>
-                                </div>
-
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+    
         <!--************************************
                 Testimonials End
         *************************************-->
@@ -1110,39 +1005,7 @@
 		*************************************-->
 
 		<footer id="jf-footer" class="jf-footer jf-haslayout">
-			<div class="jf-footeraboutus">
-				<div class="container">
-					<div class="row justify-content-center" style="">
-						<div class="col-md-4">
-							<a href="https://projects.daoscorporation.com/odile-job/public" id="OdileFooterLogo">
-								<h1 >Go-Meetjob</h1>
-								<h6 id="footerSlogan" style="position: absolute; display: flex; margin: 132px 0 0 20px; color: grey; align-items: center; justify-content: center;">
-									Jeune diplomé, un emploi
-								</h6>
-							</a>
-						</div>
-					</div>
-
-
-					<div class="row justify-content-center">
-						<div class="col-md-8">
-							<div class="jf-description" style="margin: 20px 0;">
-								<p>Nous sommes une Association pour le Développement personnel et l'Insertion professionnelle des Jeûnes diplômés (Odile) qui vise à aider les étudiants et les jeunes à pouvoir s'insérer dans le milieu professionnel.</p>
-
-								<p>
-									Nous organisons des ateliers sur les techniques de recherche de stages et d'emplois, mais également des rencontres thématiques organisées par des professionnels.
-								</p>
-							</div>
-							<ul class="jf-socialiconssimple">
-								<li class="jf-facebook"><a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-								<li class="jf-twitter"><a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a></li>
-								<li class="jf-linkedin"><a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
-								<li><a href="https://web.whatsapp.com/send?phone=22890999868&amp;text=Salut,%20comment%20pouvons%20nous%20vous%20aider?" target="_blank"><i class="fab fa-whatsapp" style="color: green"></i></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
+		
 			<div class="jf-fourcolumns">
 				<div class="container">
 					<div class="row">
@@ -1152,23 +1015,21 @@
 								<ul>
 
 																			<li>
-											<a href="https://projects.daoscorporation.com/odile-job/public/jobs/category/emploi-marketing/LYqaQlenjk">Marketing</a>
+											<a href="#">Marketing</a>
 										</li>
 																			<li>
-											<a href="https://projects.daoscorporation.com/odile-job/public/jobs/category/emploi-sante-medecine/W4QbYKezqM">Santé / Médécine</a>
+											<a href="#">Santé / Médécine</a>
 										</li>
 																			<li>
-											<a href="https://projects.daoscorporation.com/odile-job/public/jobs/category/emploi-agroalimentaire/kQBeXWdyK8">Agroalimentaire</a>
+											<a href="#">Agroalimentaire</a>
 										</li>
 																			<li>
-											<a href="https://projects.daoscorporation.com/odile-job/public/jobs/category/emploi-autres/rlNbWJayg5">Autres</a>
+											<a href="#">Autres</a>
 										</li>
 																			<li>
-											<a href="https://projects.daoscorporation.com/odile-job/public/jobs/category/emploi-secretariat/Oy5eVMdEP4">Sécrétariat</a>
+											<a href="#">Sécrétariat</a>
 										</li>
-																		<li class="jf-viewmore">
-										<a href="https://projects.daoscorporation.com/odile-job/public/jobs/category">+ Voir tout</a>
-									</li>
+
 								</ul>
 							</div>
 						</div>
@@ -1177,38 +1038,36 @@
 							<div class="jf-widgetcontent">
 								<ul>
 									<li>
-										<a href="https://projects.daoscorporation.com/odile-job/public/jobs/location/region-maritime-lome/VolejRejNm">
+										<a href="#">
 											Région Maritime (Lomé)
 										</a>
 									</li>
 
 									<li>
-										<a href="https://projects.daoscorporation.com/odile-job/public/jobs/location/region-des-plateaux-atakpame/Wpmbk5ezJn">
+										<a href="#">
 											Région des Plateaux (Atakpamé)
 										</a>
 									</li>
 
 									<li>
-										<a href="https://projects.daoscorporation.com/odile-job/public/jobs/location/region-centrale-sokode/Opnel5aKBz">
+										<a href="#">
 											Région Centrale (Sokodé)
 										</a>
 									</li>
 
 									<li>
-										<a href="https://projects.daoscorporation.com/odile-job/public/jobs/location/region-de-la-kara-kara/wMvbmOeYAl">
+										<a href="#">
 											Région de la Kara (Kara)
 										</a>
 									</li>
 
 									<li>
-										<a href="https://projects.daoscorporation.com/odile-job/public/jobs/location/region-des-savanes-dapaong/4openRe7Az">
+										<a href="#">
 											Région des Savanes (Dapaong)
 										</a>
 									</li>
 
-									<li class="jf-viewmore">
-										<a href="https://projects.daoscorporation.com/odile-job/public/jobs/location">+ Voir tout</a>
-									</li>
+							
 								</ul>
 							</div>
 						</div>
@@ -1217,23 +1076,21 @@
 							<div class="jf-widgetcontent">
 								<ul>
 																			<li>
-											<a href="https://projects.daoscorporation.com/odile-job/public/jobs/contract/optionnel/k8mep2bMyJ">Optionnel</a>
+											<a href="#">Optionnel</a>
 										</li>
 																			<li>
-											<a href="https://projects.daoscorporation.com/odile-job/public/jobs/contract/independant-freelance/WJxbojagwO">Indépendant / Freelance</a>
+											<a href="#">Indépendant / Freelance</a>
 										</li>
 																			<li>
-											<a href="https://projects.daoscorporation.com/odile-job/public/jobs/contract/stage-apprentissage-alternance/4openRe7Az">Stage / Apprentissage / Alternance</a>
+											<a href="#">Stage / Apprentissage / Alternance</a>
 										</li>
 																			<li>
-											<a href="https://projects.daoscorporation.com/odile-job/public/jobs/contract/cdd-interim-mission/wMvbmOeYAl">CDD / Intérim / Mission</a>
+											<a href="#">CDD / Intérim / Mission</a>
 										</li>
 																			<li>
-											<a href="https://projects.daoscorporation.com/odile-job/public/jobs/contract/cdi-indetermine/Opnel5aKBz">CDI / Indéterminé</a>
+											<a href="#">CDI / Indéterminé</a>
 										</li>
-																		<li class="jf-viewmore">
-										<a href="https://projects.daoscorporation.com/odile-job/public/jobs/contract">+ Voir tout</a>
-									</li>
+									
 								</ul>
 							</div>
 
@@ -1242,10 +1099,10 @@
 							<div class="jf-fwidgettitle"><h3><i class="lnr lnr-star-empty"></i> Liens Utiles</h3></div>
 							<div class="jf-widgetcontent">
 								<ul>
-									<li><a href="https://projects.daoscorporation.com/odile-job/public/about-us">Qui sommes nous ?</a></li>
-									<li><a href="https://projects.daoscorporation.com/odile-job/public/support-us">Soutenir Odile</a></li>
-									<li><a href="https://projects.daoscorporation.com/odile-job/public/share-cv">Déposer un CV</a></li>
-									<li><a href="https://projects.daoscorporation.com/odile-job/public/publish-announce">Publier des annonces</a></li>
+									<li><a href="#">Qui sommes nous ?</a></li>
+									<li><a href="#">Soutenir Odile</a></li>
+									<li><a href="#">Déposer un CV</a></li>
+									<li><a href="#">Publier des annonces</a></li>
 								</ul>
 							</div>
 
@@ -1258,16 +1115,16 @@
 				</div>
 			</div>
 			<div class="jf-footerbottom" style="padding-bottom: 0">
-				<a class="jf-btnscrolltop" href="javascript:void(0);" onclick="scrollToTop()"><i class="fab fa-angle-double-up"></i></a>
+				<a class="jf-btnscrolltop" href="javascript:void(0);" onclick="scrollToTop()"><i class="fa fa-angle-double-up"></i></a>
 				<div class="container">
 					<div class="row">
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 							<p class="jf-copyrights uppercase" style="font-size: 0.9em">Copyright &copy;
 								<script type="text/javascript">
 									document.write(new Date().getFullYear())
-								</script> <a href="https://projects.daoscorporation.com/odile-job/public" style="color: #FFF; text-decoration: none; font-weight: bold">Go-Meetjob</a>. Tous droits réservés.</p>
+								</script> <a href="#" style="color: #FFF; text-decoration: none; font-weight: bold">Go-Meetjob</a>. Tous droits réservés.</p>
 							<p class="jf-addnav uppercase" style="font-size: 0.9em; color: #FFF">
-								powered by <a href="https://daoscorporation.com/" target="_blank" style="color: #FFF; text-decoration: none; font-weight: bold">Dcn technologies</a>
+								powered by <a href="#" target="_blank" style="color: #FFF; text-decoration: none; font-weight: bold">Dcn technologies</a>
 							</p>
 						</div>
 					</div>
