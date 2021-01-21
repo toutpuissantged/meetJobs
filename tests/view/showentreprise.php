@@ -1,15 +1,6 @@
 <?php include_once('../controller/showentreprise.php') ?>
-
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title></title>
-	<link rel="stylesheet" href="">
-	    <link rel="stylesheet" href="../../public/assets/public/css/bootstrap.css">
-</head>
-<body>
+<?php include_once('section/header.php') ?>
+<h1 class="bg-light text-light pt-5 mt-5 text-center" style="color:white"> Votre page de Profil </h1>
 	<!-- Page Content -->
 <div class="container">
 

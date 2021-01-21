@@ -1,19 +1,11 @@
 <?php include_once('../controller/anonce.php') ?> 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<?php include_once('section/header.php') ?>
+<h1 class="bg-light text-light pt-5 mt-5 text-center" style="color:white"> Votre page de Profil </h1>
     <link rel="stylesheet" href="../../public/vendor/bootstrap.css">
-    <link rel="apple-touch-icon" href="../../public/apple-touch-icon.png">
-	<link rel="icon" href="../../public/assets/public/images/favicon.png" type="image/x-icon">
-    <title>Nouvel Anonce | Go-Meetjob</title>
-</head>
-<body>
-    <h1 class="bg-dark p-4 text-center text-light">publier nouvel anonce <br> <a class="h6" href="<?php echo $GLOBALS['urlMap']['home'] ?>"> retourner a l'acueille </a></h1>
+    <h1 class="bg-success rounded shadow p-4 text-center text-light m-5">publier nouvel anonce <br> <a class="h6" href="<?php echo $GLOBALS['urlMap']['home'] ?>"> retourner a l'acueille </a></h1>
 
     
-    <form class="needs-validation" action="<?php echo $GLOBALS['urlMap']['annonce'] ?>" method="post" enctype="multipart/form-data" novalidate>
+    <form class="needs-validation shadow p-5 mt-5 rounded " action="<?php echo $GLOBALS['urlMap']['annonce'] ?>" method="post" enctype="multipart/form-data" novalidate>
        
         <div class="container row">
             

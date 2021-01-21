@@ -5,8 +5,8 @@ include('../core/run.php');
 function main (){
 	session_start();
 
-    $Flash =new Flash;
-    echo $Flash->Get('showjobs');
+   # $Flash =new Flash;
+    #echo $Flash->Get('showjobs');
     /* echo '<div class="alert alert-warning alert-dismissible fade show text-center" role="alert">
               <strong>Holy guacamole!</strong> You should check in on some of those fields below.
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">

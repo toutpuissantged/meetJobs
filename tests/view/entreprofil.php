@@ -1,29 +1,20 @@
 <?php include_once('../controller/entreprofil.php') ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title></title>
-	<link rel="stylesheet" href="">
-	    <link rel="stylesheet" href="../../public/assets/public/css/bootstrap.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
-</head>
-<body>
-	<!-- Page Content -->
-<div class="container">
 
+<?php include_once('section/header.php') ?>
+
+<div class="container">
+<h1 class="bg-light text-light pt-5 mt-5 text-center" style="color:white"> Votre page de Profil </h1>
   <!-- Portfolio Item Heading -->
   <h1 class="my-4"><?php echo $args[1]; ?>
     <small> @Entreprise </small>
-    <a href="/meetjobs/" title="" class="btn btn-info"><i class="fas fa-home"></i> </a>
+    <a href="/meetjobs/" title="" class="btn btn-success"><i class="fas fa-home"></i> </a>
   </h1>
 
   <!-- Portfolio Item Row -->
   <div class="row">
 
     <div class="col-md-8">
-      <img class="img-fluid" src="../../model/upload/27.jpg" alt="">
+      <img class="img-fluid rounded" src="../../model/upload/27.jpg" alt="">
     </div>
 
     <div class="col-md-4">
@@ -36,7 +27,7 @@
         <li>Consectetur</li>
         <li>Adipiscing Elit</li>
       </ul>
-      <a href="" title="" class="btn btn-info"> voir les candidats </a>
+      <a href="" title="" class="btn btn-success"> voir les candidats </a>
     <a href="<?php echo $GLOBALS['urlMap']['annonce']?>" title="" class="btn btn-warning"> publier une annonce </a>
     </div>
     

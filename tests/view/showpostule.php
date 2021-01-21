@@ -1,14 +1,5 @@
 <?php include_once('../controller/showpostule.php') ?>
-
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title></title>
-	<link rel="stylesheet" href="">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
-	<style type="text/css">
+<style type="text/css">
 		html {
     font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
     font-size: 14px;
@@ -124,15 +115,15 @@ h5 {
     color: rgba(0, 0, 0, .87);
 }
 	</style>
-	<link href="../../public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<?php include_once('section/header.php') ?>
+	
 
-</head>
-<body>
+
 	
 <!------ Include the above in your HEAD tag ---------->
 
 <section>
-    <h1 class="text-center p-5 bg-dark text-light"> Offre publier <a href="/meetjobs/" title=" retourner a l'accueil" class="btn btn-info"><i class="fas fa-home"></i></a> </h1>
+    <h1 class="text-center p-5 bg-dark text-light"> Offre publier <a href="/meetjobs/" title=" retourner a l'accueil" class="btn btn-success"><i class="fas fa-home"></i></a> </h1>
   <div class="container py-3">
     <div class="card">
 
@@ -146,9 +137,9 @@ h5 {
               <p class="card-text"><?php echo $args[0]['description'] ?></p>
               <p class="card-text"><?php echo $args[0]['salaireMax'] ?> > salaire > <?php echo $args[0]['salaireMin'] ?></p>
                <p class="card-text">societe size a <?php echo $args[0]['localisation'] ?></p>
-              <a href="#" class="btn btn-primary">valide</a>
+              <a href="#" class="btn btn-success">valide</a>
               <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-trash-alt"></i></a>
-              <a href="/meetJobs/tests/view/entreProfil.php" class="btn btn-primary"><i class="fas fa-undo-alt"></i></a>
+              <a href="/meetJobs/tests/view/entreProfil.php" class="btn btn-success"><i class="fas fa-undo-alt"></i></a>
             </div>
           </div>
 
@@ -172,7 +163,7 @@ h5 {
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-        <a href="#" class="btn btn-primary">Suprimer</a>
+        <a href="#" class="btn btn-success">Suprimer</a>
       </div>
     </div>
   </div>
@@ -185,7 +176,7 @@ h5 {
 			  <div class="card-body">
 			    <h5 class="card-title">Card title</h5>
 			    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-			    <a href="#" class="btn btn-primary">Go somewhere</a>
+			    <a href="#" class="btn btn-success">Go somewhere</a>
 	  		  </div>
 		    </div>-->
 		    <?php echo $args[1] ?>

@@ -1,30 +1,23 @@
 <?php include_once('../controller/showjobs.php') ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title></title>
-	<link rel="stylesheet" href="">
-	    <link rel="stylesheet" href="../../public/assets/public/css/bootstrap.css">
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
       <link rel="stylesheet" href="../../public/tpg/boot.css">
-</head>
-<body>
+<?php include_once('section/header.php') ?>
+<h1 class="bg-light text-light pt-5 mt-5 text-center" style="color:white"> Votre page de Profil </h1>
 	<!-- Page Content -->
 <div class="container">
 
   <!-- Portfolio Item Heading -->
-  <h1 class="my-4"><?php echo $args[1]; ?>
-    <small> @Entreprise </small>
-    <a href="<?php echo $GLOBALS['urlMap']['home'] ?>" title="" class="btn btn-info">Allez a l'acueille</a>
-  </h1>
   <?php  
   $Flash =new Flash;
   echo $Flash->Get('showjobs');
   #echo "hello";
 
 ?>
+  <h1 class="my-4"><?php echo $args[1]; ?>
+    <small> @Entreprise </small>
+    <a href="<?php echo $GLOBALS['urlMap']['home'] ?>" title="" class="btn btn-success">Allez a l'acueille</a>
+  </h1>
+
   <!-- Portfolio Item Row -->
   <div class="row">
 
@@ -33,7 +26,7 @@
     </div>
 
     <div class="col-md-4">
-      <h3 class="my-3"><?php echo $args[2]['post']; ?> <a href="" title="" class="btn btn-info"><?php echo $args[2]['contrat']; ?> </a></h3>
+      <h3 class="my-3"><?php echo $args[2]['post']; ?> <buton  class="btn btn-success"><?php echo $args[2]['contrat']; ?> </button></h3>
       <p><?php echo $args[2]['description']; ?></p>
       <h3 class="my-3">Diplome</h3>
       <p> <?php echo $args[2]['niveau']; ?></p>
@@ -41,7 +34,7 @@
       <p> Minimum est  <?php echo $args[2]['salaireMin']; ?>FCFA</p>
       <p> Maximum est  <?php echo $args[2]['salaireMax']; ?>FCFA</p>
       <h3 class="my-3">Validiter</h3>
-      <p><a href="#" title="" class="btn btn-info">Valide</a></p>
+      <p><button class="btn btn-success">Valide</button></p>
       <?php  echo $args[3] ?>
       
     <a href="<?php echo '/meetJobs/tests/view/showentreprise.php?id='.$args[4]?>" title="" class="btn btn-danger"> voir profil de l'entreprise</a>
@@ -63,7 +56,7 @@
         Vous devez vous connecter entant que particulier pour postulez a un offre d'emploie <br>Pour continuer veillez vous connecter 
       </div>
       <div class="modal-footer">
-        <a href="<?php echo $GLOBALS['urlMap']['login'] ?>" class="btn btn-primary">Se connecter</a>
+        <a href="<?php echo $GLOBALS['urlMap']['login'] ?>" class="btn btn-success">Se connecter</a>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
         
       </div>
