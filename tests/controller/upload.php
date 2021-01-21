@@ -16,6 +16,15 @@ function main(){
         header('location: '. $GLOBALS['urlMap']['login']);
     }
 
+    else if ($_SESSION['user']['acount']!='particulier'){
+        $Bmsg='Seul les comptes particulier<br>  peuvent deposer  un cv';
+        $Boostrap=new Boostrap;
+        #echo $Bmsg2=$Boostrap->alert($Bmsg,'danger');
+        FlashInit('login');
+        FlashSet('login',$Boostrap->alert($Bmsg,'danger'));
+        header('location: '. $GLOBALS['urlMap']['login']);
+    }
+
     if ($_SERVER['REQUEST_METHOD']=='GET'){
         return '';
     };

@@ -11,6 +11,8 @@ $GLOBALS['urlMap']=[
 	'home'=>$complet.'/tests/view/home.php',
 	'annonce'=>$complet.'/tests/view/anonce.php',
 	'upload'=>$complet.'/tests/view/upload.php',
+	'userprofil'=>$complet.'/tests/view/userProfil.php',
+	'entreprofil'=>$complet.'/tests/view/entreProfil.php',
 
 
 #########  william url #################

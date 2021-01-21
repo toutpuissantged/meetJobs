@@ -35,7 +35,7 @@
 	<h2>CONNEXION</h2>
 </div>
 <form method="post" action="<?php echo $GLOBALS['urlMap']['login'] ?>">
-	<?php echo affich_error(); ?>
+	<?php echo $Con->affich_error(); ?>
 	
 	<div class="input-group">
 		<label>Login</label>

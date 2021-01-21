@@ -7,8 +7,8 @@ function main(){
     include('../core/run.php');
     session_start();
 
-    FlashInit('home');
-    echo FlashGet('home');
+    #FlashInit('home');
+    #echo FlashGet('home');
     #Boostrap.test();
 
     $html='
@@ -37,6 +37,18 @@ function main(){
 
 #####  pour verifier si l'utilistuer est connecter ########
 
+        $profilurl='';
+
+        if (isset($_SESSION['user']['acount'])) {
+            $acount=$_SESSION['user']['acount'];
+            if ($acount=='particulier') {
+                $profilurl=$GLOBALS['urlMap']['userprofil'];
+            }
+            else if ($acount=='entreprise') {
+                $profilurl=$GLOBALS['urlMap']['entreprofil'];
+            }
+        }
+
         $NotConnectMenu='<li class="menu-item-has-children page_item_has_children">
         <a href="javascript:void(0);">
             Compte
@@ -44,8 +56,9 @@ function main(){
         </a>
 
         <ul class="sub-menu">
-        <li><a href="'.$GLOBALS['urlMap']['login'].'">Entreprise</a></li>
-            <li><a href="'.$GLOBALS['urlMap']['login'].'">Particulier</a></li>
+        <li><a href="'.$GLOBALS['urlMap']['login'].'">Se connecter</a></li>
+        <li><a href="'.$GLOBALS['urlMap']['regE'].'">Creer compte entreprise</a></li>
+            <li><a href="'.$GLOBALS['urlMap']['regP'].'">Creer compte particulier</a></li>
         </ul>
         </li>';
         $ConnectMenu='<li class="menu-item-has-children page_item_has_children">
@@ -55,7 +68,7 @@ function main(){
         </a>
 
         <ul class="sub-menu">
-        <li><a href="/meetJobs/tests/view/userProfil.php">Profil</a></li>
+        <li><a href="'.$profilurl.'">Profil</a></li>
             <li><a href="'.$GLOBALS['urlMap']['logout'].'">Se deconnecter</a></li>
         </ul>
         </li>';
@@ -73,7 +86,7 @@ function main(){
         //echo $id;
     }
 
-    function htmlRend($contrat,$post,$localisation,$description,$niveau,$temps,$salaireMin,$salaireMax,$img)
+    function htmlRend($contrat,$post,$localisation,$description,$niveau,$temps,$salaireMin,$salaireMax,$img,$jobsid,$societeid)
     {
 
         ##### pour faire le rendu html ############
@@ -94,6 +107,18 @@ function main(){
             }
         }
 
+        $maxdesc=35;
+
+        if (strlen($description)>$maxdesc) {
+            $newdescription='';
+            for ($i=0; $i <$maxdesc ; $i++) { 
+                $newdescription.=$description[$i];
+
+            }
+            $description=$newdescription.'...';
+            #exit();
+        }
+
         return '
         <div class="col-md-6 jf-featurejobholder" style="">
         <div class="jf-featurejob">
@@ -101,14 +126,14 @@ function main(){
             </figure>
             <div class="jf-companycontent">
                 <div class="jf-companyhead">
-                    <a class="jf-btnjobtag jf-fulltimejob" class="jf-btnjobtag jf-internship" href="https://projects.daoscorporation.com/odile-job/public/jobs/contract/stage-apprentissage-alternance/mWZdPwbKgR" target="_blank" style="background-color: '.$contratColor.'">'.$contractText.'</a>
+                    <a class="jf-btnjobtag jf-fulltimejob" class="jf-btnjobtag jf-internship" href="/meetJobs/tests/view/showjobs.php?id='.$societeid.'&jobs='.$jobsid.'"  style="background-color: '.$contratColor.'">'.$contractText.'</a>
                     <div class="jf-rightarea">
                         <a class="jf-tagfeature">0</a>
                         <a class="jf-btnlike jf-btnliked"><i class="fa fa-heart-o"></i></a>
                     </div>
                 </div>
                 <div class="jf-companyname">
-                    <h3><a href="https://projects.daoscorporation.com/odile-job/public/jobs/marketing/stage-en-marketing-commercial-logex/mWZdPwbKgR" target="_blank">'.$post.'</a></h3>
+                    <h3><a href="/meetJobs/tests/view/showjobs.php?id='.$societeid.'&jobs='.$jobsid.'" >'.$post.'</a></h3>
                     <span style=" text-transform: uppercase; ">'.$localisation.'</span>
                 </div>
                 <div class="jf-description">
@@ -160,8 +185,23 @@ function main(){
         $sql="SELECT * FROM jobs";
         $query=$pdo->query($sql);
         $recup=$query->fetchAll();
+        $recuplen=count($recup);
+        $maxjobs=4;
+        global $showlink;
+        $showlink=TRUE;
+
+        if (isset($_GET['jobLimite'])) {
+            #echo $_GET['jobLimite'];
+            $maxjobs=$recuplen+1;
+            $showlink=FALSE;
+
+        }
         //var_dump($recup);
-        foreach ($recup as $value) {
+        for($i=0;$i<$recuplen;$i++) {
+            if ($i>=$maxjobs) {
+                break;
+            }
+            $value=$recup[$recuplen-($i+1)];
             $contrat=$value['contrat'];
             $post=$value['post'];
             $localisation=$value['localisation'];
@@ -171,14 +211,99 @@ function main(){
             $salaireMin=$value['salaireMin'];
             $salaireMax=$value['salaireMax'];
             $img=$value['image'];
-            $myCard=htmlRend($contrat,$post,$localisation,$description,$niveau,$temps,$salaireMin,$salaireMax,$img);
+            $jobsid=$value['id'];
+            $societeid=$value['societeid'];
+
+            $myCard=htmlRend($contrat,$post,$localisation,$description,$niveau,$temps,$salaireMin,$salaireMax,$img,$jobsid,$societeid);
             $card=$card.$myCard;
+            #break;
         }
+
+       
+
+        function trie($pdo){
+            global $showlink;
+            $showlink=FALSE;
+            $card="";
+            $tri=$_GET['tri'];
+            $ville=['lome','atakpame','sokode','kara','dapaong'];
+            $contrat=['TempsPlein','TempsPartiel','CDI','CDD','Stage','Freelance'];
+            if ($tri=='ville') {
+                $data=$ville;
+                $dbindex='localisation';
+                $msg="Jobs Situer a ";
+                
+
+            }
+            else if ($tri=='contrat') {
+                $data=$contrat;
+                $dbindex="contrat";
+                $msg=" contrat de type ";
+                
+            }
+
+
+            for ($i=0; $i <count($data) ; $i++) { 
+                $value2=$data[$i];
+                #echo $value2."\n";
+                $curtitle="<br><h2 class='bg-dark p-3 col-12' style='' width='100%'>".$msg.$value2."</h2> <br>";
+                $sql="SELECT * FROM jobs WHERE ".$dbindex."='".$value2."'";
+                #echo $sql;
+                $query=$pdo->query($sql);
+                $recup=$query->fetchAll();
+                $recuplen=count($recup);
+                if ($recuplen>=1) {
+                    $card=$card.$curtitle;
+                }
+                #var_dump($recup);
+                for ($i2=0; $i2 <$recuplen ; $i2++) { 
+
+                    $value=$recup[$recuplen-($i2+1)];
+                    $contrat=$value['contrat'];
+                    $post=$value['post'];
+                    $localisation=$value['localisation'];
+                    $description=$value['description'];
+                    $niveau=$value['niveau'];
+                    $temps=$value['temps'];
+                    $salaireMin=$value['salaireMin'];
+                    $salaireMax=$value['salaireMax'];
+                    $img=$value['image'];
+                    $jobsid=$value['id'];
+                    $societeid=$value['societeid'];
+
+                    $myCard=htmlRend($contrat,$post,$localisation,$description,$niveau,$temps,$salaireMin,$salaireMax,$img,$jobsid,$societeid);
+                    $card=$card.$myCard;
+                            
+                }
+
+                if ($recuplen%2!=0) {
+                    $emptyCard=' <div class="col-md-6" style="" height="200px"><h3>.</h3></div>';
+                }
+                    
+                else{
+                    $emptyCard='<br>';
+                }
+                $card=$card.$emptyCard;
+                
+            }
+            
+            #$card='';
+            return $card;
+            #exit();
+
+        }
+
+        if (isset($_GET['tri'])) {
+            #echo "methode tri pris";
+            $card=trie($pdo);
+        }
+
         $args[0]=$card;
         //var_dump($card);
     }
     catch(PDOException $e){
         echo"Erreur : " . $e->getMessage();
+        exit();
     }
 
     return [$card,Connected(),$html];

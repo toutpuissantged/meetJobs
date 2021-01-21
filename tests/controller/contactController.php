@@ -17,41 +17,57 @@ $card='';
 $args=[];
 
 function Connected(){
-    $NotConnectMenu='<li class="menu-item-has-children page_item_has_children">
-    <a href="javascript:void(0);">
-        Compte
-        <em>Gerer Votre Compte</em>
-    </a>
 
-    <ul class="sub-menu">
-    <li><a href="../william/log2.php">Entreprise</a></li>
-        <li><a href="../william/log2.php">Particulier</a></li>
-    </ul>
-    </li>';
-    $ConnectMenu='<li class="menu-item-has-children page_item_has_children">
-    <a href="javascript:void(0);">
-        Vous etes Connecter
-        <em>Gerer Votre Compte</em>
-    </a>
+#####  pour verifier si l'utilistuer est connecter ########
 
-    <ul class="sub-menu">
-    <li><a href="#">Profil</a></li>
-        <li><a href="../controller/logout.php">Se deconnecter</a></li>
-    </ul>
-    </li>';
-    if(isset($_SESSION['id'])){
-    
-            //echo ' vous etes connecter';
-            return $ConnectMenu;
+        $profilurl='';
+
+        if (isset($_SESSION['user']['acount'])) {
+            $acount=$_SESSION['user']['acount'];
+            if ($acount=='particulier') {
+                $profilurl=$GLOBALS['urlMap']['userprofil'];
+            }
+            else if ($acount=='entreprise') {
+                $profilurl=$GLOBALS['urlMap']['entreprofil'];
+            }
         }
-        else{
-            //echo 'vous n\'etes pas connecter';
-            return $NotConnectMenu;
-        }
-    
-   
-    //echo $id;
-}
+
+        $NotConnectMenu='<li class="menu-item-has-children page_item_has_children">
+        <a href="javascript:void(0);">
+            Compte
+            <em>Gerer Votre Compte</em>
+        </a>
+
+        <ul class="sub-menu">
+        <li><a href="'.$GLOBALS['urlMap']['login'].'">Se connecter</a></li>
+        <li><a href="'.$GLOBALS['urlMap']['regE'].'">Creer compte entreprise</a></li>
+            <li><a href="'.$GLOBALS['urlMap']['regP'].'">Creer compte particulier</a></li>
+        </ul>
+        </li>';
+        $ConnectMenu='<li class="menu-item-has-children page_item_has_children">
+        <a href="javascript:void(0);">
+            Vous etes Connecter
+            <em>Gerer Votre Compte</em>
+        </a>
+
+        <ul class="sub-menu">
+        <li><a href="'.$profilurl.'">Profil</a></li>
+            <li><a href="'.$GLOBALS['urlMap']['logout'].'">Se deconnecter</a></li>
+        </ul>
+        </li>';
+        if(isset($_SESSION['id'])){
+        
+                //echo ' vous etes connecter';
+                return $ConnectMenu;
+            }
+            else{
+                //echo 'vous n\'etes pas connecter';
+                return $NotConnectMenu;
+            }
+        
+       
+        //echo $id;
+    }
 
 function contact(){
     $contact ='	<div class="section-block grey-bg background-shape-3">
@@ -97,7 +113,7 @@ function contact(){
            <div class="section-heading-line line-thin" style="color:#00CC67;"></div>
            <p><strong>Une question ou suggestion?</strong></br>Laissez Nous un message </p>
        </div>
-       <form class="primary-form-2 mt-45">
+       <form class="primary-form-2 mt-45" action="" method="POST">
            <div class="row">
                <div class="col-md-10 col-sm-12 col-12 offset-md-1">
                    <div class="row">
@@ -114,7 +130,7 @@ function contact(){
                            <textarea name="message" placeholder="Message"></textarea>
                        </div>
                        <div class="col-md-12">
-                           <button type="submit" class="button-md button-primary full-width"><h4>Envoyer</h4></button>
+                           <button type="submit" class="button-md button-primary full-width"><h4 class="text-light">Envoyer</h4></button>
                        </div>
                    </div>
                </div>
@@ -130,6 +146,31 @@ $args[0]=contact();
 //$args[0]=htmlRend($contrat,$post,$localisation,$description,$niveau,$temps,$salaireMin,$salaireMax,$img);
 
 $args[1]=Connected();
+
+###  verifier mail ########
+
+include "mail.php";
+  
+  function mail_main(){
+    $objet=$_POST['subject'];
+    $name=$_POST['name'];
+    $email=$_POST['email'];
+    $msg=$_POST['message'];
+
+    $tmail=new Mymail;
+    $tmail->set($objet,$name,$email,$msg);
+    #echo "ok ca marche"; 
+    #header(" Location: /") ;  
+    #exit();
+  }
+
+  if ($_SERVER['REQUEST_METHOD']=="POST") {
+    mail_main();
+
+  }
+
+  ###################
+  
 
 //$render->renderView('home',$args);
 include_once('../view/contact.php')

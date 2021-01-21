@@ -27,6 +27,14 @@ function main (){
         FlashSet('login',$Boostrap->alert($Bmsg,'danger'));
         header('location: '. $GLOBALS['urlMap']['login']);
     }
+    else if ($_SESSION['user']['acount']!='entreprise'){
+        $Bmsg='Seul les comptes entreprise<br>  peuvent publier des annonces';
+        $Boostrap=new Boostrap;
+        #echo $Bmsg2=$Boostrap->alert($Bmsg,'danger');
+        FlashInit('login');
+        FlashSet('login',$Boostrap->alert($Bmsg,'danger'));
+        header('location: '. $GLOBALS['urlMap']['login']);
+    }
     else{
         #echo "id trouver";
     }
@@ -103,12 +111,14 @@ function main (){
     }
 
     $table=[$contrat,$post,$temps,$localisation,$description,$niveau,$salaireMin,$salaireMax];
+    #var_dump($table);
 
     foreach ($table as $key => $value) {
         if (empty($value)){
             $is_valide=FALSE;
             $error_msg=" les champs ne peuvent etre vide ";
             array_push($err_table,$error_msg);
+            exit();
             break;
         } ;
         
@@ -146,19 +156,29 @@ function main (){
         </div></div>';
         $args[0]=$html;
       try{
-        $pdo = new PDO('mysql:host=localhost;dbname='.$dbinfo["name"], $dbinfo["login"], $dbinfo["password"]);
-                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $pdo = new PDO('mysql:host=localhost;dbname='.$dbinfo["name"], $dbinfo["login"], $dbinfo["password"]);
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $pdo->beginTransaction();
+            $sql2="SELECT * FROM emtreprise WHERE matricule like ?";
+            $myexe2=$pdo->prepare($sql2);
+            $myexe2->execute(array($_SESSION['id'])); 
+            $myinfo=$myexe2->fetch();
+            #var_dump($myinfo); 
+            $societeid=$myinfo['matricule'];
+            $name=$myinfo['nom'];  
+            
             //$sql="INSERT INTO jobs (contrat,post,localisation,description,temps,niveau,salaireMin,salaireMax) 
             //VALUES($contrat,$post,$localisation,$description,$temps,$niveau,$salaireMin,$salaireMax)";  
             //$pdo->exec($sql);       
-            $sql="INSERT INTO jobs (contrat,post,localisation,description,temps,niveau,salaireMin,salaireMax,image,name) VALUES(?,?,?,?,?,?,?,?,?,?)"; 
+            $sql="INSERT INTO jobs (contrat,post,localisation,description,temps,niveau,salaireMin,salaireMax,image,name,societeid) VALUES(?,?,?,?,?,?,?,?,?,?,?)"; 
             $myexe=$pdo->prepare($sql); 
-            $myexe->execute(array($contrat,$post,$localisation,$description,$temps,$niveau,$salaireMin,$salaireMax,$image,$name));        
+            $myexe->execute(array($contrat,$post,$localisation,$description,$temps,$niveau,$salaireMin,$salaireMax,$image,$name,$societeid));        
             $pdo->commit(); 
+           # echo "mis a jour reussi";
         }
         catch(PDOException $e){
             echo"Erreur : " . $e->getMessage();
+            #exit();
         }
 
     } 
@@ -172,21 +192,7 @@ function main (){
     }
     return $args[0];
 
-    /*foreach ($err_table as  $value) {
-
-        $html='<div class=" my-alert"><div class=" alert alert-danger text-center p-3" role="alert">
-        '.$value.'
-      </div></div>';
-        $err_html=$err_html.$html.'<br>';
-    }
-    */
-
-    //var_dump($_POST);
-
-    //echo ($contrat);
-    //var_dump($err_table);
-
-    //$render->renderView('anonce',$args);
+   
 
 }
 

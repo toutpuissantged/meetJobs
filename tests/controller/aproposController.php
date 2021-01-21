@@ -17,41 +17,57 @@ $card='';
 $args=[];
 
 function Connected(){
-    $NotConnectMenu='<li class="menu-item-has-children page_item_has_children">
-    <a href="javascript:void(0);">
-        Compte
-        <em>Gerer Votre Compte</em>
-    </a>
 
-    <ul class="sub-menu">
-    <li><a href="../william/log2.php">Entreprise</a></li>
-        <li><a href="../william/log2.php">Particulier</a></li>
-    </ul>
-    </li>';
-    $ConnectMenu='<li class="menu-item-has-children page_item_has_children">
-    <a href="javascript:void(0);">
-        Vous etes Connecter
-        <em>Gerer Votre Compte</em>
-    </a>
+#####  pour verifier si l'utilistuer est connecter ########
 
-    <ul class="sub-menu">
-    <li><a href="#">Profil</a></li>
-        <li><a href="../controller/logout.php">Se deconnecter</a></li>
-    </ul>
-    </li>';
-    if(isset($_SESSION['id'])){
-    
-            //echo ' vous etes connecter';
-            return $ConnectMenu;
+        $profilurl='';
+
+        if (isset($_SESSION['user']['acount'])) {
+            $acount=$_SESSION['user']['acount'];
+            if ($acount=='particulier') {
+                $profilurl=$GLOBALS['urlMap']['userprofil'];
+            }
+            else if ($acount=='entreprise') {
+                $profilurl=$GLOBALS['urlMap']['entreprofil'];
+            }
         }
-        else{
-            //echo 'vous n\'etes pas connecter';
-            return $NotConnectMenu;
-        }
-    
-   
-    //echo $id;
-}
+
+        $NotConnectMenu='<li class="menu-item-has-children page_item_has_children">
+        <a href="javascript:void(0);">
+            Compte
+            <em>Gerer Votre Compte</em>
+        </a>
+
+        <ul class="sub-menu">
+        <li><a href="'.$GLOBALS['urlMap']['login'].'">Se connecter</a></li>
+        <li><a href="'.$GLOBALS['urlMap']['regE'].'">Creer compte entreprise</a></li>
+            <li><a href="'.$GLOBALS['urlMap']['regP'].'">Creer compte particulier</a></li>
+        </ul>
+        </li>';
+        $ConnectMenu='<li class="menu-item-has-children page_item_has_children">
+        <a href="javascript:void(0);">
+            Vous etes Connecter
+            <em>Gerer Votre Compte</em>
+        </a>
+
+        <ul class="sub-menu">
+        <li><a href="'.$profilurl.'">Profil</a></li>
+            <li><a href="'.$GLOBALS['urlMap']['logout'].'">Se deconnecter</a></li>
+        </ul>
+        </li>';
+        if(isset($_SESSION['id'])){
+        
+                //echo ' vous etes connecter';
+                return $ConnectMenu;
+            }
+            else{
+                //echo 'vous n\'etes pas connecter';
+                return $NotConnectMenu;
+            }
+        
+       
+        //echo $id;
+    }
 
 function quiSommeNous(){
     $quiSommeNous ='	<div class="section-block">
@@ -220,6 +236,6 @@ $args[0]=quiSommeNous();
 $args[1]=Connected();
 
 //$render->renderView('home',$args);
-include_once('../view/a_propos.php')
+include('../view/a_propos.php')
 
 ?>

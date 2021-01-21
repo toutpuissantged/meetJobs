@@ -342,6 +342,7 @@
 	<!--************************************
 			Wrapper Start
 	*************************************-->
+	<div id="avancedsearch"></div>
 	<div id="jf-wrapper" class="jf-wrapper">
 		<!--************************************
 				Header Start
@@ -377,12 +378,12 @@
 												</a>
 
 												<ul class="sub-menu">
-													<li><a href="https://projects.daoscorporation.com/odile-job/public/jobs/search">Recherche avancée</a></li>
-													<li><a href="https://projects.daoscorporation.com/odile-job/public/jobs">Toutes les offfres</a></li>
+													<li><a href="#avancedsearch">Recherche avancée</a></li>
+													<li><a href="<?php echo $GLOBALS['urlMap']['home'];?>?jobLimite=all">Toutes les offfres</a></li>
 													<li><a href="https://projects.daoscorporation.com/odile-job/public/jobs/category">Emploi par métier</a></li>
-													<li><a href="https://projects.daoscorporation.com/odile-job/public/jobs/location">Emploi par Ville</a></li>
-													<li><a href="https://projects.daoscorporation.com/odile-job/public/jobs/contract">Emploi par contrat</a></li>
-													<li><a href="https://projects.daoscorporation.com/odile-job/public/share-cv" class="green">Déposer votre cv</a></li>
+													<li><a href="/meetJobs/tests/view/home.php?tri=ville">Emploi par Ville</a></li>
+													<li><a href="/meetJobs/tests/view/home.php?tri=contrat">Emploi par contrat</a></li>
+													<li><a href="<?php echo $GLOBALS['urlMap']['upload'] ?>" class="green">Déposer votre cv</a></li>
 												</ul>
 											</li>
 											<li class="menu-item-has-children page_item_has_children">
@@ -488,6 +489,7 @@
 			    <!--************************************
 				Home Slider Start
 		*************************************-->
+
     <div class="jf-sliderholder">
         <div class="jf-slidercontentholder">
             <div class="container">
@@ -498,6 +500,7 @@
                             <div class="jf-description">
                                 <p> " DITES OUI A L'EMPLOI " </p>
                             </div>
+
                             <form id="searchForm" action="<?php echo $GLOBALS['urlMap']['search'] ?>" method="POST" class="jf-formtheme jf-formbannersearch" autocomplete="off">
                                 <fieldset class="jf-searcharea">
                                     <div class="jf-searchholder">
@@ -684,7 +687,7 @@
         <!--************************************
                 Featured Jobs Start
         *************************************-->
-        <section class="jf-haslayout jf-sectionspace jf-bglight">
+        <section class="jf-haslayout jf-sectionspace jf-bglight" id="jobssection">
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12">
@@ -693,7 +696,13 @@
                                 <i class="lnr lnr-briefcase"></i>
                                 Les Nouveaux Jobs
                             </h2>
-                            <a class="jf-btnviewall uppercase green" style="font-size: 0.8em" href="https://projects.daoscorporation.com/odile-job/public/jobs">Voir tous les jobs</a>
+                            <a class="jf-btnviewall uppercase green" style="font-size: 0.8em" href="<?php echo $GLOBALS['urlMap']['home'];?>?jobLimite=all"><?php
+                            global $showlink;
+                            if ($showlink==TRUE) {
+                            	echo "Voir tous les jobs";
+                            }
+                            ?>
+                            </a>
                         </div>
                     </div>
                 </div>
