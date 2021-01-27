@@ -72,7 +72,7 @@ function Connected(){
 function contact(){
     $contact ='	<div class="section-block grey-bg background-shape-3">
     <div class="container">
-    <a href="'.$GLOBALS['urlMap']['home'].'" class="h3 text-center alert alert-info my-2"> Retourner a l\'acueille </a>
+    <a href="'.$GLOBALS['urlMap']['home'].'" class="h3 text-center alert alert-success text-dark my-2"> Retournez a l\'accueil </a>
        <div class="row">
 
            <div class="col-md-6 col-sm-12 col-12">

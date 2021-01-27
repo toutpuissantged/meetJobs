@@ -2,7 +2,7 @@
 <?php include_once('section/header.php') ?>
 <h1 class="bg-light text-light pt-5 mt-5 text-center" style="color:white"> Votre page de Profil </h1>
     <link rel="stylesheet" href="../../public/vendor/bootstrap.css">
-    <h1 class="bg-success rounded shadow p-4 text-center text-light m-5">publier nouvel anonce <br> <a class="h6" href="<?php echo $GLOBALS['urlMap']['home'] ?>"> retourner a l'acueille </a></h1>
+    <h1 class="bg-success rounded shadow p-4 text-center text-light m-5">publiez une nouvelle annonce <br> <a class="h6" href="<?php echo $GLOBALS['urlMap']['home'] ?>"> retournez a l'accueil </a></h1>
 
     
     <form class="needs-validation shadow p-5 mt-5 rounded " action="<?php echo $GLOBALS['urlMap']['annonce'] ?>" method="post" enctype="multipart/form-data" novalidate>
@@ -95,7 +95,7 @@
         </div>
 
     </form>
-</body>
+
 <script>
     /*La fonction principale de ce script est d'empêcher l'envoi du formulaire si un champ a été mal rempli
      *et d'appliquer les styles de validation aux différents éléments de formulaire*/
@@ -115,4 +115,4 @@
       }, false);
     })();
   </script> 
-</html>
+<?php include_once('section/footer.php') ?>

@@ -69,5 +69,4 @@
 </div>
 <!-- /.container -->
 
-</body>
-</html>
+<?php include_once('section/footer.php') ?>

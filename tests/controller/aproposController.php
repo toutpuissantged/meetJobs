@@ -72,7 +72,7 @@ function Connected(){
 function quiSommeNous(){
     $quiSommeNous ='	<div class="section-block">
     <div class="container">
-    <a href="'.$GLOBALS['urlMap']['home'].'" class="h3 text-center alert alert-info my-5"> Retourner a l\'acueille </a>
+    <a href="'.$GLOBALS['urlMap']['home'].'" class="h3 text-center alert alert-success text-dark my-5"> Retournez a l\'accueil </a>
     <br><br>
         <div class="row">
             <div class="col-md-6 col-sm-6 col-12">

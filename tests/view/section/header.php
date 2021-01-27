@@ -376,16 +376,16 @@
 												</a>
 
 												<ul class="sub-menu">
-													<li><a href="#avancedsearch">Recherche avancée</a></li>
+													<li><a href="/meetJobs/tests/view/home.php#avancedsearch">Recherche avancée</a></li>
 													<li><a href="<?php echo $GLOBALS['urlMap']['home'];?>?jobLimite=all">Toutes les offfres</a></li>
-													<li><a href="https://projects.daoscorporation.com/odile-job/public/jobs/category">Emploi par métier</a></li>
+													<li><a href="javascript:void(0);">Emploi par métier</a></li>
 													<li><a href="/meetJobs/tests/view/home.php?tri=ville">Emploi par Ville</a></li>
 													<li><a href="/meetJobs/tests/view/home.php?tri=contrat">Emploi par contrat</a></li>
 													<li><a href="<?php echo $GLOBALS['urlMap']['upload'] ?>" class="green">Déposer votre cv</a></li>
 												</ul>
 											</li>
 											<li class="menu-item-has-children page_item_has_children">
-												<a href="javascript:void(0);">
+												<a href="/meetJobs/tests/view/home.php#blog">
 													Blog<em>Conseils & Actus Emploi</em>
 												</a>
                                                     <!--
@@ -481,12 +481,12 @@
 														<a href="javascript:void(0);">Devenir partenaire</a>
 														<ul class="sub-menu">
 															<li>
-																<a href="https://projects.daoscorporation.com/odile-job/public/publish-announce">
+																<a href="javascript:void(0);">
 																	Publier vos annonces
 																</a>
 															</li>
 															<li>
-																<a href="https://projects.daoscorporation.com/odile-job/public/support-us">
+																<a href="javascript:void(0);">
 																	Soutenir l'association
 																</a>
 															</li>
@@ -504,12 +504,12 @@
 														<a href="javascript:void(0);">Votre success story</a>
 														<ul class="sub-menu">
 															<li>
-																<a href="https://projects.daoscorporation.com/odile-job/public/share-success-story">
+																<a href="javascript:void(0);">
 																	Partager un témoignage
 																</a>
 															</li>
 															<li>
-																<a href="https://projects.daoscorporation.com/odile-job/public/success-story-list">
+																<a href="javascript:void(0);">
 																	Notre success story list
 																</a>
 															</li>

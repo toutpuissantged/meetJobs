@@ -37,35 +37,8 @@
 
   <div class="row">
   	<?php echo $args[0];?>
-    <!--<div class="col-md-3 col-sm-6 mb-4">
-      <a href="#">
-            <img class="img-fluid" src="../../model/upload/27.jpg" alt="">
-          </a>
-        <p>salut</p>
-    </div>
-
-    <div class="col-md-3 col-sm-6 mb-4">
-      <a href="#">
-            <img class="img-fluid" src="../../model/upload/27.jpg" alt="">
-          </a>
-    </div>
-
-    <div class="col-md-3 col-sm-6 mb-4">
-      <a href="#">
-            <img class="img-fluid" src="../../model/upload/27.jpg" alt="">
-          </a>
-    </div>
-
-    <div class="col-md-3 col-sm-6 mb-4">
-      <a href="#">
-            <img class="img-fluid" src="../../model/upload/27.jpg" alt="">
-          </a>
-    </div>
-	-->
   </div>
 
 </div>
 <!-- /.container -->
-
-</body>
-</html>
+<?php include_once('section/footer.php') ?>

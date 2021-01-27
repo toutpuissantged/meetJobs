@@ -8,7 +8,8 @@ $GLOBALS['db']=[
 ];
 
 $GLOBALS['url']=[
-	'domaine'=>'/',
+    'domaine'=>'/',
+    #'floderName'=>''
 	'floderName'=>'meetJobs'
 ];
 

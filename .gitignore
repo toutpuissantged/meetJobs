@@ -1,1 +1,9 @@
 public/
+deployed
+.vscode
+gomeetjobs.code-workspace
+tests/view/auth
+model
+tests/controller/vendor
+tests/william/Login
+script
