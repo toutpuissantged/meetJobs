@@ -15,11 +15,17 @@
 	<!--Online Fonts-->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Poppins:400,500,600,700,800,900&amp;display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="../../public/assets/public/css/bootstrap.css">
+	<link rel="stylesheet" href="../../public/assets/public/css/bootstrap.css">
 	<link rel="stylesheet" href="../../public/assets/public/css/animate.min.css">
+    <link rel="stylesheet" href="../../public/assets/public/css/animate.css">
+    <link rel="stylesheet" href="../../public/assets/public/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../public/vendor/fontawesome/css/all.css">
+    <link rel="stylesheet" href="../../public/assets/public/css/plugins.css">
+    <link rel="stylesheet" href="../../public/assets/public/css/styles_apropo.css">
+    <link rel="stylesheet" href="../../public/assets/public/css/icomoon.css">
 	<link rel="stylesheet" href="../../public/assets/public/css/normalize.css">
-	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-
+	<link rel="stylesheet" href="../../public/assets/public/css/fontawesome/fontawesome-all.css">
+	<link rel="stylesheet" href="../../public/assets/public/css/font-awesome.min.css">
 	<link rel="stylesheet" href="../../public/assets/public/css/themify-icons.css">
 	<link rel="stylesheet" href="../../public/assets/public/css/owl.carousel.css">
 	<link rel="stylesheet" href="../../public/assets/public/css/linearicons.css">
@@ -34,6 +40,7 @@
 	<link rel="stylesheet" href="../../public/assets/public/css/responsive.css">
 	<script src="../../public/assets/public/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 	<script src="../../public/assets/public/js/vendor/jquery-3.3.1.js"></script>
+
 
 	
 
@@ -444,10 +451,10 @@
 																<li><a href="'.$GLOBALS['urlMap']['regP'].'">Creer compte particulier</a></li>
 															</ul>
 															</li>';
-															$ConnectMenu='<li class="menu-item-has-children page_item_has_children">
+															$ConnectMenu='<li class="menu-item-has-children page_item_has_children text-center">
 															<a href="javascript:void(0);">
-																Vous etes Connecter
-																<em>Gerer Votre Compte</em>
+															<i class="fas fa-user"></i>
+																<em>'.$_SESSION['user']['name'].'</em>
 															</a>
 													
 															<ul class="sub-menu">
@@ -481,12 +488,12 @@
 														<a href="javascript:void(0);">Devenir partenaire</a>
 														<ul class="sub-menu">
 															<li>
-																<a href="javascript:void(0);">
+																<a href="<?php echo $GLOBALS['urlMap']['annonce'] ?>">
 																	Publier vos annonces
 																</a>
 															</li>
 															<li>
-																<a href="javascript:void(0);">
+																<a href="../controller/contactController.php">
 																	Soutenir l'association
 																</a>
 															</li>
@@ -494,7 +501,7 @@
 													</li>
 
 													<li class="menu-item-has-children page_item_has_children">
-														<a href="javascript:void(0);">création de Cv</a>
+														<a href="<?php echo $GLOBALS['urlMap']['upload'] ?>">création de Cv</a>
 													</li>
 													<li class="menu-item-has-children page_item_has_children">
 														<a href="javascript:void(0);">FAQ</a>

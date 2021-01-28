@@ -59,6 +59,7 @@ class Con
 					{
 					$allinfo           = $verf_login->fetch();
 					$_SESSION['id']    = $allinfo['matricule'];
+					$_SESSION['user']['name']    = $allinfo['nom'];
 					if ($connex2==1) {
 						$_SESSION['user']['name']    = $allinfo['nom'];
 					}
@@ -77,11 +78,11 @@ class Con
 	public function affich_error()
 	 {
 		global $errors;
-
+		$Boostrap=new Boostrap;
 		if (count($errors) == 1){
 			echo '<div class="error" style ="">';
 				foreach ($errors as $error){
-					echo $error .'<br>';
+					echo $Boostrap->alert($error .'<br>','danger');
 				}
 			echo '</div>';
 		}
@@ -106,6 +107,7 @@ class Con
 
 			session_start();
 			global $errors;
+			
 			$method = $_SERVER['REQUEST_METHOD'];
 			$errors   = array(); 
 
@@ -116,7 +118,7 @@ class Con
 				
 			        return '';
 			    }
-			
+			 
 			
 			//  se connecter à la BD
 				global $bd;
